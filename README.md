@@ -145,7 +145,7 @@ for (size_t ix = 0; ix < req->get_request_log_buffer_length(); ix++) {
 printf("\n");
 ```
 
-## Mbed OS 5
+## Mbed OS 5.x
 
 If you want to use this library on Mbed OS 5.x or lower, you need to use https://os.mbed.com/teams/sandbox/code/mbed-http/
 
