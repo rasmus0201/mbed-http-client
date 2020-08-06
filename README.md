@@ -1,4 +1,4 @@
-# HTTP and HTTPS library for mbed OS 5
+# HTTP and HTTPS library for mbed OS 6
 
 This library is used to make HTTP and HTTPS calls from Mbed OS 6 applications.
 
