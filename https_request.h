@@ -96,7 +96,6 @@ protected:
 
         int result = _network->gethostbyname(host, &addr);
         if (result != NSAPI_ERROR_OK) {
-            printf("Failure: %d\n", result);
             return result;
         }
 
