@@ -95,11 +95,8 @@ protected:
     virtual nsapi_error_t connect_socket(char *host, uint16_t port) {
         SocketAddress addr;
 
-        printf("HOSTNAME: %s\n", host);
-
         int result = _network->gethostbyname(host, &addr);
         if (result != NSAPI_ERROR_OK) {
-            printf("Failure: %d\n", result);
             return result;
         }
 
