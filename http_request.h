@@ -14,33 +14,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 #ifndef _HTTP_REQUEST_
 #define _HTTP_REQUEST_
- 
+
 #include <string>
 #include <vector>
 #include <map>
 #include "http_request_base.h"
 #include "http_parsed_url.h"
 #include "TCPSocket.h"
- 
+
 /**
  * @todo:
  *      - Userinfo parameter is not handled
  */
- 
+
 #ifndef HTTP_RECEIVE_BUFFER_SIZE
 #define HTTP_RECEIVE_BUFFER_SIZE 8 * 1024
 #endif
- 
+
 /**
  * \brief HttpRequest implements the logic for interacting with HTTP servers.
  */
 class HttpRequest : public HttpRequestBase {
 public:
     friend class HttpRequestBase;
- 
+
     /**
      * HttpRequest Constructor
      *
@@ -56,15 +56,15 @@ public:
     {
         _error = 0;
         _response = NULL;
- 
+
         _parsed_url = new ParsedUrl(url);
         _request_builder = new HttpRequestBuilder(method, _parsed_url);
- 
+
         _socket = new TCPSocket();
         ((TCPSocket*)_socket)->open(network);
         _we_created_socket = true;
     }
- 
+
     /**
      * HttpRequest Constructor
      *
@@ -80,18 +80,18 @@ public:
     {
         _error = 0;
         _response = NULL;
- 
+
         _parsed_url = new ParsedUrl(url);
         _request_builder = new HttpRequestBuilder(method, _parsed_url);
- 
+
         _we_created_socket = false;
     }
- 
+
     virtual ~HttpRequest() {
     }
- 
+
 protected:
- 
+
     virtual nsapi_error_t connect_socket(char *host, uint16_t port) {
         SocketAddress addr;
 
@@ -105,5 +105,5 @@ protected:
         return ((TCPSocket*)_socket)->connect(addr);
     }
 };
- 
+
 #endif // _HTTP_REQUEST_
